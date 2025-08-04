@@ -1,504 +1,568 @@
-//? numero secreto del programa
+let  numero_Secreto = 0;
+let intentos = 0;
+let listaNumerosSorteados = [];
+let numeroMaximo = 10;
+let maximosIntentos = 3;
 
-let numero_maximo = 100
-let numeroSecreto = Math.floor(Math.random() * numero_maximo) + 1;
-
-let numeroUsuario = 0;//* aca va a estar el numero del usuario
-let intentos = 1;
-// let palabrasVeces = 'vez';
-let maximosIntentos = 2;
-
-
-while (numeroUsuario != numeroSecreto ) {
-    // alert('hola mundo');
-     numeroUsuario = parseInt(prompt(`escribe un entre el 1 y ${numero_maximo} numero`));
-    console.log(typeof(numeroUsuario)); //# aca voy a poder ver el numero del usuario en consola
-    if (numeroUsuario == numeroSecreto) { //! aca se hace la compracion de los 2 numeros
-        //!Acertamos, fue verdadera la condicion
-        alert(`Acertaste, el numero es: ${numeroUsuario}. Lo hiciste en ${intentos} ${intentos == 1 ? 'vez' : 'veces'} `);
-    }else{
-        if (numeroUsuario > numeroSecreto) {
-            alert('El numero secreto es menor');
-        }else{
-            alert('El numero secreto es mayor');
-        }
-        //! incrementamos el contador cuando no acierta
-        //intentos = intentos + 1;
-        // intentos +=1;
-        intentos ++;
-
-        //palabrasVeces = 'veces';
-        if (intentos > maximosIntentos) {
-            alert(`Llegaste al numero maximo ${maximosIntentos} de intentos, y el numero era ${numeroSecreto}`);
-            break
-            
-        }
-        //!La condicion no se cumplio
-        // alert('Lo siento, no acertaste el numero');
-    
-    }
+console.log(numero_Secreto);
+function asignar_Texto_Elemento(elemento, texto) {
+    let elemento_HTML = document.querySelector(elemento);
+    elemento_HTML.innerHTML = texto;
+    return;
     
 }
 
+function verificarIntento(){
 
-
-
-
-
-// # un poco de mejora del codigo
-
-// let numeroSecreto = Math.floor(Math.random() *10)+1;
-// let numeroUsuario = prompt("escribe un entre el 1 y 10 numero");
-// // alert('hola mundo');
-// console.log(numeroUsuario);
-
-// if (numeroUsuario == numeroSecreto) {
-//     alert('Acertaste el numero');
-// }
-// console.log(numeroSecreto);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//! tarea 1 javasicrit
-
-/*
-* opcion 1 , literal con las intrucciones
-
-*/
-
-// alert('Bienvenida y bienvenido a nuestro sitio web');
-// let nombre = 'Lua';
-// let edad = 25;
-// let numeroDeVentas = 50;
-// let saldoDisponible = 1000;
-// alert('Error! Completa todos los campos');
-// let mensajeDeError  = 'Error! Completa todos los campos';
-// alert(mensajeDeError);
-// nombre = prompt('Cual es tu nombre');
-// edad = prompt('Cual es tu edad');
-// if (edad >= 18) {
-//     alert('Puedes obtener tu licencia de conducir');
-// } 
-
-//* opcion 2 , como yo lo interprete
-// alert('Bienvenida y bienvenido a nuestro sitio web');
-// let nombre = prompt('tu nombre');
-// let edad = prompt('tu edad');
-// let numeroDeVentas = 50;
-// let saldoDisponible = 1000;
-// let mensajeDeError  = 'Error! Completa todos los campos';
-
-// if (edad >= 18) {
-//     alert('Puedes obtener tu licencia de conducir');
-// } else{
-
-//     alert(mensajeDeError);
-// }
-
-/*
-! desafia 2 
-*/
-
-// //* 1
-// /*
-// #Pregunta al usuario qué día de la semana es. Si la respuesta es "Sábado" o "Domingo",
-//  #muestra "¡Buen fin de semana!". De lo contrario, muestra "¡Buena semana!".
-// */
-// let diaDeSemana = prompt('¿Que dia de la semana es?');
-
-
-// if ( diaDeSemana == 'Sabado' || diaDeSemana == 'Domingo') {
-//     alert('Buen fin de semana');
+    let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
     
-// }else{
-//     alert('Buena semana');
-
-// }
-
-// //* 2
-// /*
-// #Verifica si un número ingresado por el usuario es positivo o negativo. Muestra una alerta informativa.
-// */
-// let numeroIngresado = prompt('Ingrese un numero');
-// if (numeroIngresado == 0) {
-//     alert('El numero nuetro: ' + numeroIngresado);
-// } else if (numeroIngresado > 0) {
-//  alert(`El numero es positivo : ${numeroIngresado}`);
-// } else {
-//  alert(`El numero es negativo : ${numeroIngresado}`);
-// }
-
-//  //* 3
-//  /*
-//  #Crea un sistema de puntuación para un juego. Si la puntuación es mayor o igual a 100, muestra "¡Felicidades, has ganado!".
-//  # En caso contrario, muestra "Intentalo nuevamente para ganar.".
-//  */
-// let numeroIngresado3 = prompt('Ingrese una puntuacion '); 
-// if (numeroIngresado3 >= 100) {
-//     alert('¡Felicidades, has ganado!');
-// }else{
-//     alert('Intentalo nuevamente para ganar');
-// }
-
-// //*4
-// /*
-// #Crea un mensaje que informe al usuario sobre el saldo de su cuenta, 
-// #utilizando un template string para incluir el valor del saldo.
-// */
-// let saldodeUsuario = 10000;
-// alert(`el salgo de usuario es: ${saldodeUsuario.toLocaleString('es-CL')}`);
-
-// //* 5
-// /*
-// #Pide al usuario que ingrese su nombre mediante un prompt.
-// # Luego, muestra una alerta de bienvenida usando ese nombre.
-// */
-// let nombresuario = prompt('¿Ingrese su nombre?');
-// alert(`Bienvenido: ${nombresuario}`);
-
-
-
-//*6
-//* como yo resolvi el loop infinito con contador 0 condicion < y contador = contador + 1 
-//* que es igual a += 1
-// let cantidadNumeros = prompt('Ingrese la cantidad de números para el cálculo del promedio:');
-// let suma = 0;
-// let contador = 0;
-
-// while(contador < cantidadNumeros){
+    if (numeroDeUsuario === numero_Secreto) {
+        asignar_Texto_Elemento('p', `Acertaste el numero en ${intentos} ${(intentos === 1) ? 'vez' : 'veces'}`);
+        document.getElementById('reiniciar').removeAttribute('disabled');
+    } else{
+        //! El usuario no acerto
+        if (numeroDeUsuario > numero_Secreto) {
+            asignar_Texto_Elemento('p', 'El numero secreto es menor');      
+        } else {
+            asignar_Texto_Elemento('p', 'El numero secreto es mayor');
+        }
+        intentos ++;
+        limpiarCaja();
+        if (intentos > maximosIntentos) {
+             asignar_Texto_Elemento('p', `Llegaste al numero maximo ${maximosIntentos} de intentos, y el numero era ${numero_Secreto}`);
+            
+            
+        }
+    }
+    return;
     
-//     let numero = parseInt(prompt('Ingrese el numero:'));
-//     suma += numero;
-//     contador += 1;
+    
+}
+
+function limpiarCaja() {
+    document.querySelector('#valorUsuario').value = '';
+}
+function condicionesIniciales() {
+    asignar_Texto_Elemento('h1', 'Juego del numero secreto!');
+    asignar_Texto_Elemento('p', `Indica un numero del 1 al ${numeroMaximo}`);
+    numero_Secreto = generar_Numero_Secreto();
+    intentos = 1;
+
+
+}
+
+function reiniciarJuego() {
+    //#limpiar caja
+    limpiarCaja();
+    //# Indicar mensaje de intervalo de numeros
+    //# Generar el numero aleatorio
+    //# Deshanilitar el boton de nuevo juego
+    condicionesIniciales();
+    //#Inicializar el numero de intentos
+    document.querySelector('#reiniciar').setAttribute('disabled', true);
+}
+
+
+function generar_Numero_Secreto() {
+    let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1;
+    console.log(numeroGenerado);
+    console.log(listaNumerosSorteados);
+    //! si ya sorteamos todos los numeros
+    if (listaNumerosSorteados.length == numeroMaximo) {
+        asignar_Texto_Elemento('p', 'Ya se sortearon todos los numeros posibles');
+    }else{
+        //# Si el numero generado esta incluido en la lista
+        if (listaNumerosSorteados.includes(numeroGenerado)) {
+            return generar_Numero_Secreto();
+        }else{
+            listaNumerosSorteados.push(numeroGenerado);
+            return numeroGenerado;
+        }
+
+    }
+    
+    
+}
+
+condicionesIniciales();
+
+
+
+
+
+
+
+//! desafio 2
+// //# 1. Crear una función que muestre "¡Hola, mundo!" en la consola.
+// function hola() {
+//     console.log('hola, mundo');
+    
 // }
 
-// let promedio = suma / cantidadNumeros;
-
-// console.log(promedio);
-// console.log(contador);
+// hola();
 
 
-//* como se resolvia el loop infinito con contador --
-// let cantidadNumeros = prompt('Ingrese la cantidad de números para el cálculo del promedio:');
-// let suma = 0;
-// let contador = cantidadNumeros;
+// //# 2. Crear una función que reciba un nombre como parámetro y muestre "¡Hola, [nombre]!" en la consola.
+// function miNomebre (nombre) {
+//     console.log(`hola: ${nombre}`);
+    
+// }
+// miNomebre('lucas');
 
-// while(contador > 0){
+// //# 3. Crear una función que reciba un número como parámetro y devuelva el doble de ese número.
 
-//     let numero = parseInt(prompt('Ingrese el numero:'));
-//     suma += numero;
-//     contador --;
+// function doble(numero) {
+//     return console.log(`nuemro: ${numero * 2}`);
+    
+// }
+// doble(6);
+
+// //# 4. Crear una función que reciba tres números como parámetros y devuelva su promedio.
+// function tres(numero1,numero2,numero3) {
+//     return console.log(`promedio: ${((numero1 + numero2 + numero3)/ 3)}`);
+    
+// }
+// tres(2,2,2,);
+
+// //# 5. Crear una función que reciba dos números como parámetros y devuelva el mayor de ellos.
+// function mayor (numero1, numero2) {
+//     return console.log(`mayor: ${numero1 > numero2 ? numero1 : numero2}`);
+    
+// }
+// mayor(1,2);
+
+// //# 6. Crear una función que reciba un número como parámetro y devuelva el resultado de multiplicar ese número por sí mismo.
+// function mul(nuemro) {
+//     return console.log(`resultado por multiplicion del mismo numero ${nuemro * nuemro}`);
+    
+// }
+// mul(5);
+
+
+//? retorno sttring con variable sin console log
+// function calcularDobleTriple(numero) {
+//   return numero * 2 + " es el doble y " + numero * 3 + " es el triple.";
 // }
 
-// let promedio = suma / cantidadNumeros;
+// const numero = 5;
+// const resultado = calcularDobleTriple(numero);
+// console.log(resultado);
 
-// console.log(promedio);
-// console.log(contador);
 
-//! desafio3
-/*
-*Crea un contador que comience en 1 y vaya hasta 10 usando un bucle 'while'. Muestra cada número.
-*/
-// let contador = 1;
+//! desafio 3
 
-// while(contador <= 10){
-// console.log('contador: '+ contador);
-// contador += 1;
-
+// //#Crea una función que calcule el índice de masa corporal (IMC) de una persona a partir de su altura en metros y peso en kilogramos, que se recibirán como parámetros.
+// function corporal(peso, altura) {
+//     let resultado = peso / (altura * altura);
+//     return console.log(resultado);
+    
+    
 // }
-// console.log('listo');
+// corporal(66,1.75)
 
 
-/*
-*Crea un contador que comience en 10 y vaya hasta 0 usando un bucle 'while'. Muestra cada número.
-*/
-
-// let contador = 10;
-
-// while(contador >= 0){
-// console.log('contador: '+ contador);
-// contador -= 1 ;
-
+// //#Crea una función que calcule el valor del factorial de un número pasado como parámetro.
+// function factorial(numero) {
+//     if (numero === 0 || numero ===1) {
+//         return 1;
+//     }else{
+//         console.log(numero);
+        
+//         return numero * factorial(numero -1);
+//     }
 // }
-// console.log('listo');
 
 
-/*
-* Crea un programa de cuenta regresiva.
-* Pide un número y cuenta desde 0 hasta ese número utilizando un bucle 'while' 
-* en la consola del navegador.
-*/
+// let numero = 5;
+// let resultado = factorial(numero);
+// console.log(`El factorial de ${numero} es ${resultado}`);
 
-// let numero = prompt("Dame un numero");
-// let contador = numero;
-// while (contador >= 0) {
-//     console.log('cuenta regresiva: ' + contador);
-//     contador = contador - 1;
+// //#Crea una función que convierta un valor en dólares, pasado como parámetro, y devuelva el valor equivalente en reales(moneda brasileña,
+// //# si deseas puedes hacerlo con el valor del dólar en tu país). Para esto, considera la cotización del dólar igual a R$4,80.
+// function convertir(dolar) {
+//     let resultado = dolar * 4.80;
+//     return resultado;
+// }
+// let operacion =convertir(10);
+// console.log(`reales: ${operacion}`);
+
+
+// //#Crea una función que muestre en pantalla el área y el perímetro de una sala rectangular, utilizando la altura y la anchura que se proporcionarán como parámetros.
+// function areaPerimetro(altura,ancho) {
+//     let area = ancho * altura;
+//     let perimetro = 2 * (ancho + altura);
+//     console.log(`are: ${area} ancho: ${perimetro}` );
+    
+// }
+
+// areaPerimetro(3,5);
+
+
+
+// //#Crea una función que muestre en pantalla el área y el perímetro de una sala circular, utilizando su radio que se proporcionará como parámetro. Considera Pi = 3,14.
+
+// function circulo(radio) {
+//     let pi = 3.14;
+//      let area = pi * (radio * radio);
+//     let perimetro = 2 * (pi * radio);
+//         console.log(`are: ${area} ancho: ${perimetro}` );
+// }
+
+// circulo(4);
+
+
+
+// //#Crea una función que muestre en pantalla la tabla de multiplicar de un número dado como parámetro.
+
+
+// function tabla(numero) {
+//     let contador = 0;
+//     while (contador >=0) {
+//         if (contador == 13) {
+            
+            
+//             break
+//         }else{
+            
+//             console.log(`tabla ${numero} x ${contador} ${contador * numero}`);
+//             contador ++;
+
   
-    
-// }
 
-
- /*
- * Crea un programa de cuenta progresiva. Pide un número y
- * cuenta desde 0 hasta ese número utilizando un bucle 'while' en la consola del navegador.
- */
-
-// let numero = prompt("Dame un numero");
-// let contador = numero;
-// let alreves = 0
-// while (contador >= 0) {
-//     console.log('cuenta progresiva: ' + alreves);
-//     contador = contador - 1;
-//     alreves = alreves + 1;
-// }
-
-
-/*
-
-
-*Aline está dando sus primeros pasos en la programación utilizando JavaScript y recientemente
-*descubrió una funcionalidad que le pareció fascinante: el operador ternario.
-
-*Ella encontró muy interesante la posibilidad que el operador ofrece para reducir 
-*la cantidad de código escrito en algunas ocasiones y decidió aplicarlo en la práctica,
-*en uno de sus proyectos personales. Sin embargo, al intentar hacer esta refactorización, 
-*se olvidó de la sintaxis del operador ternario.
-
-*Sabiendo que tú has estudiado sobre el operador recientemente, 
-*ella te pidió ayuda y te mostró el código que quiere refactorizar:
-*/
-
-//? refactorizar
-// //!antes 
-// let palabraPersona = "";
-// cantidadPersonas =1;
-// if(cantidadPersonas == 1){
-//     palabraPersona = "persona";
-// }else{
-//     palabraPersona = "personas"
-// }
-
-
-
-// //# despues operador ternario
-// let palabraPersona = "";
-// let cantidadPersonas = 1;
-// cantidadPersonas == 1 ?  palabraPersona = 'persona' : palabraPersona = 'personas';
-// console.log(palabraPersona);
-
-// ! desafio 4
-/*
-    # 1 Crea un programa que utilice console.log para mostrar un mensaje de bienvenida.
-
-*/
-    // console.log('Hola bienvenido/a');
-
-
-
-
-/*
-    # 2 Crea una variable llamada "nombre" y asígnale tu nombre.
-    # Luego, utiliza console.log para mostrar el mensaje "¡Hola, [tu nombre]!" en la consola del navegador.
-
-*/
-    // let nombre = 'lucas';
-    // console.log('hola, ' + nombre);
-
-
-
-
-/*
-    # 3 Crea una variable llamada "nombre" y asígnale tu nombre. Luego, utiliza alert para mostrar el mensaje "¡Hola, [tu nombre]!".
-
-*/
-    // let mi_nmombre = "Lucas";
-    // alert(`hola, ${mi_nmombre}`);
-
-
-
-
-/*
-    # 4 Utiliza prompt y haz la siguiente pregunta: ¿Cuál es el lenguaje de programación que más te gusta?.
-    # Luego, almacena la respuesta en una variable y muestra la respuesta en la consola del navegador.
-
-*/
-
-    // let pregunta = prompt('¿Cuál es el lenguaje de programación que más te gusta?');
-    // console.log(`respuesta: ${pregunta}`);
-    
-
-
-/*
-    # 5 Crea una variable llamada "valor1" y otra llamada "valor2", asignándoles valores numéricos de tu elección.
-    # Luego, realiza la suma de estos dos valores y almacena el resultado en una tercera variable llamada "resultado".
-    # Utiliza console.log para mostrar el mensaje "La suma de [valor1] y [valor2] es igual a [resultado]." en la consola.
-
-*/
-    // let valor1 = 10;
-    // let valor2 = 30;
-    // let resultado = valor1 + valor2;
-    // console.log(`La suma de  ${valor1} y ${valor2} es igual a ${resultado}.`);
-    
-
-
-
-
-
-/*
-    # 6 Crea una variable llamada "valor1" y otra llamada "valor2", asignándoles valores numéricos de tu elección. 
-    # Luego, realiza la resta de estos dos valores y almacena el resultado en una tercera variable llamada "resultado".
-    # Utiliza console.log para mostrar el mensaje "La diferencia entre [valor1] y [valor2] es igual a [resultado]." en la consola.
-
-*/
-    // let valor1 = 10;
-    // let valor2 = 30;
-    // let resultado = valor1 - valor2;
-    // console.log(`La diferencia entre ${valor1} y ${valor2} es igual a ${resultado}.`);
-    
-
-
-
-/*
-    # 7 Pide al usuario que ingrese su edad con prompt. Con base en la edad ingresada, 
-    #utiliza un if para verificar si la persona es mayor o menor de edad y muestra un mensaje apropiado en la consola.
-
-*/
-
-// let edad = parseInt(prompt('Ingrese su edad'));
-// edad > 17 ? console.log('eres adulto') : console.log('eres menor de edad');
-
-
-
-
-/*
-    # 8 Crea una variable "numero" y solicita un valor con prompt. Luego,
-    # verifica si es positivo, negativo o cero utilizando un if-else y muestra el mensaje correspondiente.
-
-*/
-// let numero = parseInt(prompt('Ingrese un numero'));
-// if (numero == 0) {
-//     console.log('el numero es 0 y es neutro');
-    
-    
-// }else{
-//     if (numero > 0) {
-//         console.log('numero positivo');
-        
-//     }else {
-//         console.log('numero negativo');
-        
+//         }
 //     }
 
-// }
-
-
-
-/*
-    # 9 Utiliza un bucle while para mostrar los números del 1 al 10 en la consola.
-
-*/
-
-// let continuar = '';
-// let numero = 1;
-// while (continuar == '') {
-//     console.log(numero);
-//     numero ++;
-//     if (numero == 11) {
-//         break
-//     }
     
 // }
 
 
 
-//# 2 opcion
-// let continuar = '';
-// let numero = 0;
-// while (continuar == '') {
-//    numero == 10
-//    ? continuar = 'no'
-//    : numero ++ 
-//    ;
-//    console.log(numero);
+// function tabla(numero) {
+//   for (var i = 1; i <= 10; i++) {
+//     var resultado = numero * i;
+//     console.log(numero + " x " + i + " = " + resultado);
+//   }
 // }
+// // Ejemplo de uso
+// let numero = 7;
+// mostrarTablaDeMultiplicar(numero);
 
 
-/*
-    # 10 Crea una variable "nota" y asígnale un valor numérico. 
-    #Utiliza un if-else para determinar si la nota es mayor o igual a 7 y muestra "Aprobado" o "Reprobado" en la consola.
 
-*/
+//# Crea una lista vacía llamada "listaGenerica".
+let listaGenerica = [];
 
+//# Crea una lista de lenguajes de programación llamada "lenguagesDeProgramacion con los siguientes elementos: 'JavaScript', 'C', 'C++', 'Kotlin' y 'Python'.
+let lenguagesDeProgramacion = ['JavaScript', 'C', 'C++', 'Kotlin','Python'];
 
-// let nota = 10;
-// if (nota >= 7) {
-//     console.log('Aprobado');
+//# Agrega a la lista "lenguagesDeProgramacion los siguientes elementos: 'Java', 'Ruby' y 'GoLang'.
+    lenguagesDeProgramacion.push('Java', 'Ruby','GoLang')
+//# Crea una función que muestre en la consola todos los elementos de la lista "lenguagesDeProgramacion.
+function mostrar() {
+    console.log(lenguagesDeProgramacion);
     
-// }else {
-//     console.log('Reprobado');
-    
-// }
+}
+mostrar();
 
-/*
-    # 11 Utiliza Math.random para generar cualquier número aleatorio y muestra ese número en la consola.
+//# Crea una función que muestre en la consola todos los elementos de la lista "lenguagesDeProgramacion en orden inverso.
+function todos() {
+    let original = lenguagesDeProgramacion.length - 1;
+    console.log(`total: ${original}`);
+    let contador = original;
+    while(contador >=0) {
+        let indice = lenguagesDeProgramacion;
+        console.log(indice[contador]);
+       
+        contador --;
 
-*/
-
-// let aleatorio = Math.random();
-// console.log(aleatorio);
-
-
-
-/*
-    # 12 Utiliza Math.random para generar un número entero entre 1 y 10 y muestra ese número en la consola.
-
-*/
-//  let aleatorio = parseInt(Math.random()*10) +1;
-
-// console.log(aleatorio);
-
-
-/*
-    # 13 Utiliza Math.random para generar un número entero entre 1 y 1000 y muestra ese número en la consola.
-
-*/
-
-
-// let aleatorio = 0;
-
-
-// while (typeof aleatorio == 'number') {
-//     aleatorio =  parseInt(Math.random()*1000) +1;
-//     if (aleatorio == 1000) {
-//         console.log(aleatorio);
-//         break
         
+        
+
+    }
+}
+
+todo();
+//opencion2
+function todo() {
+    for (let i = 0; i < lenguagesDeProgramacion.length; i++) {
+        console.log(lenguagesDeProgramacion[i]);
+    }
+}
+
+
+//# Crea una función que calcule el promedio de los elementos en una lista de números.
+function promedio() {
+    let numeros = [];
+    let rango = 0;
+    let suma = 0;
+    while (rango <=6) {
+        let ran = parseInt(Math.floor(Math.random() * 7)+1);
+        if (numeros.includes(ran)) {
+            return promedio();
+        }else{
+
+            numeros.push(ran);
+            rango ++;
+            
+            
+   
+        }
+    
+
+
+    }
+    
+    for (const n in numeros) {
+        suma = suma + n;
+        
+    }
+    resul = suma  / 7;
+    console.log(numeros);
+    
+    return resul;
+            
+   
+    
+}
+console.log(`promedio: ${promedio()}`);
+
+
+
+
+//opcion 2
+// function calcularMedia(lista) {
+//   let suma = 0;
+//   for (let i = 0; i < lista.length; i++) {
+//     suma += lista[i];
+//   }
+//   return suma / lista.length;
+// }
+
+// let numeros = [10, 20, 30, 40, 50];
+// let media = calcularMedia(numeros);
+// console.log('Média:', media);
+
+//# Crea una función que muestre en la consola el número más grande y el número más pequeño en una lista.
+function mayorMenor() {
+    let menorMayor = [];
+   
+    while (true) {
+        let original = Math.floor(Math.random() * 7) + 1;
+        console.log(typeof(original));
+        
+        console.log(original);
+        if (menorMayor.length ==7) {
+            console.log(menorMayor);
+            break
+        }
+        menorMayor.push(original);
+        
+    }
+     let menor = menorMayor[0];
+    let mayor = menorMayor[0];
+    for (let i = 0; i < menorMayor.length; i++) {
+        console.log(i);
+        console.log(menorMayor[i]);
+        
+        if (menorMayor[i] > mayor) {
+            
+            mayor = menorMayor[i];
+            
+        }else if (menorMayor[i] < menor){
+           menor = menorMayor[i];
+        }
+
+        
+         let min = Math.min(...menorMayor);
+         let max = Math.max(...menorMayor);
+
+        //  console.log(min);
+        //  console.log(max);
+        
+        
+    }
+    console.log('Mayor:', mayor);
+    console.log('Menor:', menor);
+
+        
+}
+
+mayorMenor();
+
+// function encontrarMayorMenor(lista) {
+//   let mayor = lista[0];
+//   let menor = lista[0];
+
+//   for (let i = 1; i < lista.length; i++) {
+//     if (lista[i] > mayor) {
+//       mayor = lista[i];
+//     }
+//     if (lista[i] < menor) {
+//       menor = lista[i];
+//     }
+//   }
+
+//   console.log('Mayor:', mayor);
+//   console.log('Menor:', menor);
+// }
+
+// let numeros = [15, 8, 25, 5, 12];
+// encontrarMayorMenor(numeros);
+
+
+//# Crea una función que devuelva la suma de todos los elementos en una lista.
+// function suma(lista) {
+//     let suma = 0;
+//     for (let i = 0; i < lista.length; i++) {
+//         console.log(i);
+        
+//         console.log(lista.length);
+        
+//         suma = suma + lista[i];
+        
+//     }
+//     return suma / lista.length;
+// }
+// let lista = [2,3,5];
+
+// console.log(suma(lista));
+
+
+//# Crea una función que devuelva la posición en la lista donde se encuentra un elemento pasado como parámetro, o -1 si no existe en la lista.
+// let listaPosicion = [];
+// function posicion(listaPosicion = [],posicion) {
+//     if (listaPosicion.includes(posicion)) {
+//         let po = listaPosicion[posicion];
+//         console.log(po);
+//     }else{
+        
+//         return -1;
+        
+
 //     }
     
 // }
 
-// # opcion 2
-// let aleatorio =0;
+// console.log( posicion([0,1,2],3));
 
+//opcion 2 
+/*
+* indexOf es un método de los arrays en JavaScript que devuelve el índice (la posición) de un elemento dentro del arreglo. listaPosicion.indexOf(numero)
+*/
+// let listaPosicion = [];
+// function posicion(listaPosicion = [],posicion) {
 
-// while (true) {
-//     aleatorio =  parseInt(Math.random()*1000) +1;
-//     if (aleatorio == 1000) {
-//         console.log(aleatorio);
-//         break
-        
-//     }
+//     return posicion >= 0 && posicion < listaPosicion.length
+//     ? listaPosicion[posicion]
+//     : -1;
+
+    
     
 // }
+
+// let li = posicion([0,1,2,],0);
+// console.log(li);
+
+/*
+Valores que al evaluarse como booleanos dan false:
+
+0
+
+"" (cadena vacía)
+
+null
+
+undefined
+
+NaN
+
+false
+
+ejemplo
+return listaPosicion[posicion]
+        ?  listaPosicion[posicion] 
+        : -1;
+*/
+//# Crea una función que reciba dos listas de números del mismo tamaño y devuelva una nueva lista con la suma de los elementos uno a uno.
+// function sum(lista1, lista2) {
+//     let lista3 = [];
+//     for (let i = 0; i < lista1.length; i++) {
+//         let suma = lista1[i] + lista2[i] ;
+//             console.log(lista1[i]);
+            
+//             lista3.push(suma);
+//             console.log(suma);
+        
+//     }
+//     return (lista3);
+// }
+
+
+// console.log(sum([1, 2, 3], [4, 5, 6])); // [5, 7, 9]
+
+//# Crea una función que reciba una lista de números y devuelva una nueva lista con el cuadrado de cada número.
+
+// function cuadrado(lista4) {
+//     let lista5 = [];
+//     for (let i = 0; i < lista4.length; i++) {
+//         let cuadrado = lista4[i] * lista4[i];
+//         lista5.push(cuadrado);
+//         console.log(lista5[i]);
+//         console.log(cuadrado);
+        
+//     }
+//     return (lista5);
+// }
+
+
+// console.log(cuadrado([1, 2, 3])); 
+
+
+
+//!opcion original
+
+// function cuadradoLista(lista) {
+//     return lista.map(num => num ** 2);
+// }
+
+// const lista = [1, 2, 3];
+// const resultado = cuadradoLista(lista);
+// console.log(resultado);  
+
+
+// //es lo mismo que esto
+// function(num) {
+//   return num ** 2;
+// }
+// // y esto 
+// // Math.pow(2, 3); // devuelve 8 significa al cuadrado elevado
+
+
+
+//! Las funciones de etiqueta incluso pueden devolver valores que no sean cadenas de caracteres:
+// function plantilla(cadenas, ...claves) {
+//   return function (...valores) {
+//     let diccio = valores[valores.length - 1] || {};
+//     let resultado = [cadenas[0]];
+//     claves.forEach(function (clave, i) {
+//       let valor = Number.isInteger(clave) ? valores[clave] : diccio[clave];
+//       resultado.push(valor, cadenas[i + 1]);
+//     });
+//     return resultado.join("");
+//   };
+// }
+
+// let t1Closure = plantilla`¡${0}${1}${2}${2}${3}!`;
+// //let t1Closure = plantilla(["¡","","","","","","!"],0,1,2,3);
+// t1Closure("H", "U", "R", "A"); // "¡HURRA!"
+
+// let t2Closure = plantilla`${0} ${"foo"}!`;
+// //let t2Closure = plantilla(["¡",""," ","!"],0,"foo");
+// t2Closure("Hola", { foo: "Mundo" }); // "¡Hola Mundo!"
+
+// let t3Closure = plantilla`Me llamo ${"nombre"}. Tengo casi ${"edad"} años.`;
+// //let t3Closure = plantilla(["Me llamo ", ". Tengo casi ", " años."], "nombre", "edad");
+// t3Closure("foo", { nombre: "MDN", edad: 30 }); //"Me llamo MDN. Tengo casi 30 años."
+// t3Closure({ nombre: "MDN", edad: 30 }); //"Me llamo MDN. Tengo casi 30 años."
+
+
